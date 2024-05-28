@@ -1,0 +1,12 @@
+thirtydays.90841509
+30days.1f70a7e4
+diceroller.86ba0821
+artspaceapp.cdb8a50e
+basic-android-kotlin-compose-training-tip-calculator-test_solution.570cc5a6
+basic-android-kotlin-compose-training-tip-calculator.7c85b8ed
+basic-android-kotlin-compose-training-tip-calculator-main.2166fa99
+lemonade.616a445f
+businesscard.993deaa0
+greetingcard.8da0c699
+happybirthday.962e97cd
+todolist.2cfd35dc

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Cataas</string>
+    <string name="next_image">Next image</string>
+    <string name="internet_connection_error">Internet Connection Error</string>
+</resources>
