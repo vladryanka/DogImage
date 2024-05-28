@@ -31,7 +31,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 public class MainViewModel extends AndroidViewModel {
 
 
-    private CompositeDisposable compositeDisposable;
+    private CompositeDisposable compositeDisposable = new CompositeDisposable();
     private static final String BASE_URL = "https://dog.ceo/api/breeds/image/random";
     private static final String KEY_MESSAGE = "message";
     private static final String KEY_STATUS = "status";
@@ -89,30 +89,7 @@ public class MainViewModel extends AndroidViewModel {
     }
 
     private Single<DogImage> loadDogImageRx() {
-        return Single.fromCallable(new Callable<DogImage>() {
-            @Override
-            public DogImage call() throws Exception {
-                URL url = new URL(BASE_URL);
-                HttpsURLConnection httpsURLConnection = (HttpsURLConnection) url.openConnection();
-                InputStream inputStream = httpsURLConnection.getInputStream();
-                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String result;
-                StringBuilder data = new StringBuilder();
-                do {
-                    result = bufferedReader.readLine();
-                    if (result != null)
-                        data.append(result);
-                } while (result != null);
-
-
-                JSONObject jsonObject = new JSONObject(data.toString());
-                String message = jsonObject.getString(KEY_MESSAGE);
-                String status = jsonObject.getString(KEY_STATUS);
-                DogImage image = new DogImage(message, status);
-                return image;
-            }
-        });
+        return ApiFactory.getApiService().getDogImage();
     }
     @Override
     protected void onCleared() {

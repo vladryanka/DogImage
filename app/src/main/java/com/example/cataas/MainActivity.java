@@ -1,5 +1,6 @@
 package com.example.cataas;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -30,7 +31,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class MainActivity extends AppCompatActivity {
 
-    MainViewModel mainViewModel;
+    private MainViewModel mainViewModel;
 
     private Button buttonLoadImage;
     private ProgressBar progressBar;
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         mainViewModel.loadDogImage();
         mainViewModel.getError().observe(this,
                 new Observer<Boolean>() {
+                    @SuppressLint("SuspiciousIndentation")
                     @Override
                     public void onChanged(Boolean isError) {
                         if (isError)
